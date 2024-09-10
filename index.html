@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bank</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        h1 {
+            font-family: "Lora", serif;
+        }
+
+        #welcome {
+            position: absolute;
+            top: 30%;
+            left: 100px;
+            padding: 60px;
+            border: 2px;
+            background-color: transparent;
+            color: aliceblue;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            opacity: .5;
+            padding-bottom: 150px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .search-box {
+            position: relative;
+            width: 200px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 30px 10px 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        #btn1 {
+            background-color: rgb(34, 150, 244);
+            position: absolute;
+            top: 55%;
+            left: 230px;
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            color: #fff;
+        }
+
+        #btn1:hover {
+            background-color: rgb(131, 193, 244);
+        }
+
+        #btn2 {
+            background-color: rgb(34, 150, 244);
+            position: absolute;
+            top: 55%;
+            left: 500px;
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            color: #fff;
+        }
+
+        #btn2:hover {
+            background-color: rgb(131, 193, 244);
+        }
+
+        #btn3 {
+            background-color: rgb(34, 150, 244);
+            left: 500px;
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            color: #fff;
+        }
+
+        #btn3:hover {
+            background-color: rgb(131, 193, 244);
+        }
+
+        #btn4 {
+            background-color: rgb(34, 150, 244);
+            left: 500px;
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            color: #fff;
+        }
+
+        #btn4:hover {
+            background-color: rgb(131, 193, 244);
+        }
+
+        hr {
+            border-color: #000;
+
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            padding: 20px;
+        }
+
+        .row {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="" width="100%" height=>
+        <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+            <div class="container-fluid ">
+                <img src="./travel logo.png" width="180px" class="pe-2 ms-5" alt="">
+
+                <ul class="nav nav-tabs pe-5 ">
+
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link  text-light" href="#" role="button" aria-expanded="false">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  text-light" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">About</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  text-light" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Service</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  text-light" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  text-light" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Logout</a>
+                    </li>
+                    <div class="search-container">
+                        <div class="search-box">
+                            <form id="searchForm">
+                                <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+                                <i class="fas fa-search search-icon" ></i>
+                            </form>
+                        </div>
+                    </div>
+                </ul>
+        </nav>
+    </div>
+    <section>
+        <img src="https://img.theweek.in/content/dam/week/news/2020/images/2021/1/13/State-Bank-of-India-SBI-SBI-building-shut.jpg"
+            width="100%" height="550px" alt="">
+        <div>
+            <div id="welcome">
+                <h2>ONLINE BANKING</h2>
+                <p>By clicking on "Continue to Login" button, you agree to the Terms of Service (Terms & Conditions)
+                    <br>of usage of Internet Banking of SBI.
+                </p>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto  ">
+                <button id="btn1" onclick="reg()"  type="button" class="btn btn-" data-bs-toggle="button" autocomplete="off">Register →
+                </button>
+                <button id="btn2" onclick="log()" type="button" class="btn btn-" data-bs-toggle="button" autocomplete="off">Login
+                    →</button>
+            </div>
+        </div>
+    </section>
+
+
+    </div>
+    <div class="d-flex justify-content-evenly p-3">
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.8ewt0Dedqjc8c5xuZ6Vv1gHaDG?w=285&h=146&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                width="150px" height="60px" alt="">
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.1cdnU_b7PfOc0KVahkmsJwHaBu?rs=1&pid=ImgDetMain" width="150px"
+                height="60px" alt="">
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.M7EXSj-82DGLQs12eKSTRAHaDt?w=350&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                width="150px" height="60px" alt="">
+        </div>
+        <div>
+            <img src="https://logos-download.com/wp-content/uploads/2022/01/SBI_Card_Logo.png" width="150px"
+                height="60px" alt="">
+        </div>
+
+    </div>
+
+
+
+    <div class="ms-4 text-center pb-5">
+        <h1 class=" mt-5">Services</h1>
+    </div>
+    <div class="d-flex justify-content-evenly text-center">
+        <div class="card" style="width: 22rem;">
+            <img src="https://th.bing.com/th/id/OIP.msDTOSpGLHDti1dAe_nvtwHaFj?w=201&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                width="250px" height="200px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a class="text-secondary text-decoration-none fs-5" href="">SBI's internet banking portal provides
+                    personal banking services that gives you complete control over all your banking demands online. </a>
+            </div>
+        </div>
+        <div class="card" style="width: 22rem;">
+            <img src="https://th.bing.com/th/id/OIP.BlNd-45tZYyYjeJymtS0bQHaFX?w=232&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                class="card-img-top" width="250px" height="200px" alt="...">
+            <div class="card-body">
+                <a class="text-secondary text-decoration-none fs-5" href="">Find the best SBI Card for your needs from a
+                    range of lifestyle, reward, shopping, travel, fuel and banking partnership cards.</a>
+            </div>
+        </div>
+        <div class="card" style="width: 22rem;">
+            <img src="https://th.bing.com/th/id/OIP.rUdA3gxDzcPwcD5JnJ1eLAHaHa?w=158&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                width="250px" height="200px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a class="text-secondary text-decoration-none fs-5" href="">SBI Life Insurance Company offers a range of
+                    life insurance plans and policies in India, to help you protect you and your family.</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="button" id="btn3" class="btn  m-5" data-bs-toggle="button" autocomplete="off">Get Start
+            →</button>
+    </div>
+
+    <hr>
+
+    <section>
+        <div class=" text-center pb-5">
+            <h1 class=" mt-2">
+                <Obj>ABOUT</Obj>
+            </h1>
+
+        </div>
+
+        <div class="d-flex justify-content-evently text-center ">
+            <div>
+                <h4 class="fs-1"><b> ONLINE BANKING </b></h4>
+                <p class="fs-4 ms-5 me-5">Online banking, also known as internet banking or e-banking, is a digital
+                    service provided by financial institutions that allows customers to conduct various financial
+                    transactions and manage their accounts through the internet. It offers convenience and
+                    accessibility, enabling users to perform banking activities from anywhere and at any time, using a
+                    computer, smartphone, or tablet.</p>
+                <button id="btn4" type="button" class="btn btn-" data-bs-toggle="button" autocomplete="off">ABOUT
+                    →</button>
+            </div>
+            <div class="col"></div>
+            <img class="pb-5"
+                src="https://th.bing.com/th/id/OIP.zyqYtpxlz4Z12DLvSyNXdAHaEK?w=312&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                width="100%" height="400px" alt="">
+        </div>
+    </section>
+
+
+
+    <footer class="bg-primary text-center  ">
+        <div class="d-flex justify-content-evenly p-3 text-light">
+            <ul class="justify-content-evenly p-3 list-unstyled  ">
+                <h2>Customer Relations</h2>
+                <li class="fs-5 p-3">Direct Tax collection</li>
+                <li class="fs-5 p-3">Fed-e-Point</li>
+                <li class="fs-5 p-3">Contact Center</li>
+                <li class="fs-5 p-3"> Update KYC Details Online</li>
+
+            </ul>
+            <ul class="justify-content-evenly p-3 list-unstyled ">
+                <h2>Social Media</h2>
+                <a href="https://instagram.com/expertvagabond"><img class="rounded-circle"
+                        src="https://th.bing.com/th/id/OIP.7vfM_K66FMSrGovHI_839gHaHa?w=156&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        width="30px" alt=""></a>
+                <a href=""><img class="rounded-circle"
+                        src="https://th.bing.com/th/id/OIP.94UzkdzXG2PFvRKQKxn0VgHaHv?w=172&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        width="35px" alt=""></a>
+                <a href=""><img class="rounded-circle"
+                        src="https://th.bing.com/th/id/OIP.MRL5BZp80Vwnnyoy6JlQ9gHaHa?w=194&h=195&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        width="35px" alt=""></a>
+                <a href=""><img class="rounded-circle"
+                        src="https://th.bing.com/th/id/OIP.O00L3v25c10flEOPS3RjEQHaGF?w=226&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        width="40px" alt=""></a>
+
+            </ul>
+
+            <ul class="justify-content-evenly p-3 list-unstyled ">
+                <h2>Investor Relations</h2>
+                <li class="fs-5 p-3">Financial Results</li>
+                <li class="fs-5 p-3">Annual Reports</li>
+                <li class="fs-5 p-3 ">Regulatory Disclosures Section</li>
+                <li class="fs-5 p-3">Shareholder Information</li>
+
+            </ul>
+
+        </div>
+
+        <div class=" text-center pb-3 text-light">
+            <p>&copy; 2023 online banking. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="bank.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="">
+    <div class="container my-5">
+        <div id="nav">
+            <h1>Welcome <span id="user"></span></h1>
+        </div><br>
+        <!-- <h2 class="text-center mb-4">Welcome <span id="resul"></span></h2> -->
+
+        <div id="bankingSection" class="row mb-3" style="display:flex;">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Deposit</h5>
+                        <input type="number" id="depositAmount" class="form-control" placeholder="Enter deposit amount">
+                        <input type="password" id="depositPassword" class="form-control mt-3" placeholder="Enter your password">
+                        <button class="btn btn-primary mt-3" onclick="deposit()">Deposit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Withdraw</h5>
+                        <input type="number" id="withdrawAmount" class="form-control" placeholder="Enter withdrawal amount">
+                        <input type="password" id="withdrawPassword" class="form-control mt-3" placeholder="Enter your password">
+                        <button class="btn btn-danger mt-3" onclick="withdraw()">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Balance</h5>
+                        <p id="balance" class="display-6">$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bank.js"></script>
+</body>
+</html>
