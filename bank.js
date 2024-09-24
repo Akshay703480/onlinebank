@@ -5,66 +5,69 @@ function log() {
 function reg() {
     window.location.href = "registration.html";
 }
-
-
-//register
 function register(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const accountNumber = document.getElementById('accountNumber').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+    const username = document.getElementById('username').value.trim();
+    const accountNumber = document.getElementById('accountNumber').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const confirmPassword = document.getElementById('confirmPassword').value.trim();
 
-    if (password !== confirmPassword) {
-        alert("Passwords do not match");
+    if (!username || !accountNumber || !password || !confirmPassword) {
+        alert("Please enter all details.");
         return;
     }
 
-    const userData = {
-        username: username,
-        accountNumber: accountNumber,
-        password: password, 
-        balance: 0 
-    };
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
 
-    localStorage.setItem('bankingUser', JSON.stringify(userData));
-    alert("Registration successful");
-    window.location.href = "login.html";
+    if (localStorage.getItem(accountNumber)) {
+        alert("Account with this account number already exists.");
+    } else {
+        const userData = {
+            username,
+            accountNumber,
+            password,
+            balance: 0 
+        };
+        localStorage.setItem(accountNumber, JSON.stringify(userData));
+        alert("User registered successfully!");
+        window.location.href = "login.html"; 
+    }
 }
 
-//login
-
+// Login
 function login(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    const accountNumber = document.getElementById('accountNumber').value;
-    const password = document.getElementById('password').value;
-
-    const storedUser = JSON.parse(localStorage.getItem('bankingUser'));
+    const accountNumber = document.getElementById('accountNumber').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const storedUser = JSON.parse(localStorage.getItem(accountNumber));
 
     if (storedUser) {
-        if (accountNumber === storedUser.accountNumber && password === storedUser.password) {
-            sessionStorage.setItem('loggedInUser', JSON.stringify(storedUser)); 
+        if (password === storedUser.password) {
+            sessionStorage.setItem('loggedInUser', JSON.stringify(storedUser));
             alert("Login successful");
             window.location.href = "home.html"; 
         } else {
-            alert("Incorrect account number or password");
+            alert("Incorrect password");
         }
     } else {
         alert("No account found with this account number");
     }
 }
 
-//home
-
+// Home
 let currentUser = null;
 
 window.onload = function() {
-    currentUser = JSON.parse(sessionStorage.getItem('loggedInUser')); 
+    currentUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
     if (currentUser) {
         updateBalance();
+        displayUsername();
         document.getElementById('setupPasswordSection').style.display = 'none';
         document.getElementById('bankingSection').style.display = 'flex';
     }
@@ -77,9 +80,10 @@ function deposit() {
     if (depositPassword === currentUser.password) {
         if (!isNaN(depositAmount) && depositAmount > 0) {
             currentUser.balance += depositAmount; 
-            localStorage.setItem('bankingUser', JSON.stringify(currentUser)); 
+            localStorage.setItem(currentUser.accountNumber, JSON.stringify(currentUser));
             sessionStorage.setItem('loggedInUser', JSON.stringify(currentUser)); 
             updateBalance();
+            alert("Deposit successful!");
         } else {
             alert("Please enter a valid deposit amount");
         }
@@ -99,9 +103,10 @@ function withdraw() {
         if (!isNaN(withdrawAmount) && withdrawAmount > 0) {
             if (withdrawAmount <= currentUser.balance) {
                 currentUser.balance -= withdrawAmount; 
-                localStorage.setItem('bankingUser', JSON.stringify(currentUser)); 
+                localStorage.setItem(currentUser.accountNumber, JSON.stringify(currentUser));
                 sessionStorage.setItem('loggedInUser', JSON.stringify(currentUser)); 
                 updateBalance();
+                alert("Withdrawal successful!");
             } else {
                 alert("Insufficient balance.");
             }
@@ -121,17 +126,13 @@ function updateBalance() {
 }
 
 
+function displayUsername() {
+    const user2 = currentUser.username; 
+    const msg = document.getElementById("user");
 
-// function userName2() {
-//     let user2 = localStorage.getItem("username"); 
-//     let msg = document.getElementById("user");
-//     console.log(user2);
-    
-//     if (user2) {
-//         msg.innerHTML = user2;
-//     } else {
-//         msg.innerHTML = "No username found.";
-//     }
-// }
-// userName2()
-
+    if (user2) {
+        msg.innerHTML = `Welcome, ${user2}`;
+    } else {
+        msg.innerHTML = "No username found.";
+    }
+}
